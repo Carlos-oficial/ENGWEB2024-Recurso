@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= book.title 
+  p Author: 
+  each autor in book.author 
+    a(href="/authors/"+autor)
+        p #{autor}
+  p Genres: #{book.genres.join(', ')}
+  p Characters: #{book.characters.join(', ')}
+  p Rating: #{book.rating}
+  p Description: #{book.description}
+  p Language: #{book.language}
+  p ISBN: #{book.isbn}
+  p Pages: #{book.pages}
+  p Publisher: #{book.publisher}
+  p Publish Date: #{book.publishDate}
+  p First Publish Date: #{book.firstPublishDate}
+  p Awards: #{book.awards.join(', ')}
+  p Number of Ratings: #{book.numRatings}
+  p Ratings by Stars: #{book.ratingsByStars.join(', ')}
+  p Liked Percent: #{book.likedPercent}
+  p Setting: #{book.setting.join(', ')}
+  p Cover Image:
+    img(src=book.coverImg alt=book.title)
+  p BBE Score: #{book.bbeScore}
+  p BBE Votes: #{book.bbeVotes}
+  p Price: #{book.price}

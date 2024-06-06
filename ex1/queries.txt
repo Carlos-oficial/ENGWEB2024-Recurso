@@ -1,0 +1,14 @@
+1.
+db.livros.countDocuments({ title: { $regex: "Love", $options: "i" } })
+2.
+db.livros.aggregate([ {$match: { author: { $regex: "Austen", $options: "i" } }},{ $project: { _id: 0, title: 1 } },{$sort: {title:1}},{ $group: { _id: null, titles: { $push: "$title" } } }])
+3.
+db.livros.aggregate([
+    { $unwind: "$author" },
+    { $group: { _id: null, authors: { $addToSet: "$author" } } },
+    { $unwind: "$authors" },
+    { $sort: { "authors": 1 } },{ $group: { _id: null, authors: { $push: "$authors" } } },])
+
+
+
+db.livros.find({characters: { $regex: "Bennet", $options: "i" }})

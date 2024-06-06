@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+
+  body
+    nav
+      span 
+        a(href="/")
+          h1.text-xl.font-bold="Home"
+      span 
+        h1=title
+      span
+    block content

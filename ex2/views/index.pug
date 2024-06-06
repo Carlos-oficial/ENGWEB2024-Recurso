@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  table
+    thead
+      tr
+        th ID
+        th Título
+        th Autor
+        th Data de publicação
+        th Nº de páginas
+        
+    tbody
+      each livro in books
+        tr
+          td
+            a(href="/"+livro.bookId)= livro.bookId
+          td=livro.title
+          td
+            each autor in livro.author
+              span 
+               a(href="/authors/"+autor)= autor
+              span= "|"
+          td=livro.publishDate
+          td=livro.pages
+
+
